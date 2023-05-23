@@ -6,7 +6,7 @@ const Footer = () => {
     };
 
     return (
-        <div className='container mx-auto'>
+        <>
             <footer className='flex'>
                 <div className='flex-1 bg-[#1F2937] text-white p-4'>
                     <div className="text-end mr-6 space-y-4">
@@ -32,7 +32,7 @@ const Footer = () => {
             <div className="bg-[#151515] py-4 text-center">
                 <p className="text-white text-lg">Copyright © {getCurrentYear()} - All right reserved by <span className="text-yellow-600 font-semibold">Mahmudul Hasan</span></p>
             </div>
-        </div>
+        </>
     );
 };
 
