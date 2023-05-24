@@ -1,19 +1,13 @@
-import { useEffect, useState } from "react";
+
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import Menu from "./Menu";
+import useMenu from "../../../hooks/useMenu";
 
 const PopularMenu = () => {
 
-    const [menu, setMenu] = useState([]);
+    const [menu] = useMenu();
+    const popular = menu.filter(item => item.category === 'popular')
 
-    useEffect(() => {
-        fetch('menu.json')
-            .then(res => res.json())
-            .then(data => {
-                const popularItem = data.filter(item => item.category === 'popular');
-                setMenu(popularItem)
-            })
-    }, [])
 
     return (
         <section className="my-20">
@@ -24,7 +18,7 @@ const PopularMenu = () => {
 
             <div className="grid grid-cols-2 gap-10 mt-10">
                 {
-                    menu.map(item => <Menu key={item._id} item={item}></Menu>)
+                    popular.map(item => <Menu key={item._id} item={item}></Menu>)
                 }
             </div>
             <div className="text-center mt-4">
