@@ -6,6 +6,7 @@ const NavBar = () => {
         <div className="space-x-4">
             <Link className="uppercase text-yellow-500 font-extrabold" to='/'>Home</Link>
             <Link className="uppercase text-yellow-500 font-extrabold" to='/menu'>Our Menu</Link>
+            <Link className="uppercase text-yellow-500 font-extrabold" to='/order/salad'>Order Food</Link>
         </div>
     </>
 

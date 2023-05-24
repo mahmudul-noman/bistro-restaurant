@@ -27,21 +27,14 @@ const Menu = () => {
                 <title>Bistro | Menu</title>
             </Helmet>
 
-            <Cover img={MenuBg} title={"Our Menu"} subtitle={"Would you like to try a dish?"}></Cover>
-
+            <Cover img={MenuBg} title={"Our Menu"}   subtitle={"Would you like to try a dish?"}></Cover>
             <SectionTitle subHeading="Don't miss" heading="TODAY'S OFFER"></SectionTitle>
-            <MenuCategory menuButton={"ORDER YOUR FAVOURITE FOOD"} items={offered}></MenuCategory>
-
-            <Cover img={desertImg} title={"Deserts"} subtitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></Cover>
-            <MenuCategory menuButton={"ORDER YOUR FAVOURITE FOOD"} items={dessert.slice(0, 6)}></MenuCategory>
-
-
-            <Cover img={saladImg} title={"SALAD"} subtitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></Cover>
-            <MenuCategory menuButton={"ORDER YOUR FAVOURITE FOOD"} items={salad.slice(0, 8)}></MenuCategory>
-
-            <Cover img={soupImg} title={"SOUP"} subtitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></Cover>
-            <MenuCategory menuButton={"ORDER YOUR FAVOURITE FOOD"} items={soup.slice(0, 8)}></MenuCategory>
-        </div>
+            <MenuCategory items={offered}></MenuCategory>
+            <MenuCategory title={"dessert"} img={desertImg} items={dessert.slice(0, 6)}></MenuCategory>
+            <MenuCategory title={"pizza"} img={pizzaImg} items={pizza.slice(0, 6)}></MenuCategory>
+            <MenuCategory title={"salad"} img={saladImg} items={salad.slice(0, 8)}></MenuCategory>
+            <MenuCategory title={"soup"} img={soupImg} items={soup.slice(0, 8)}></MenuCategory>
+        </div> 
     );
 };
 
