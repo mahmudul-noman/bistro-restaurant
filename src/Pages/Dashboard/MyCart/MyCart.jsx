@@ -47,7 +47,7 @@ const MyCart = () => {
                 <title>Bistro | My Cart</title>
             </Helmet>
             <div className="bg-white p-10 w-3/4">
-                <div className="uppercase text-2xl font-bold mb-4 flex justify-evenly items-center">
+                <div className="uppercase text-xl font-bold mb-4 flex justify-evenly items-center">
                     <h2>Total Orders: {cart.length}</h2>
                     <h2>Total Price: $ {total}</h2>
                     <button className="btn btn-sm bg-[#D1A054] border-0">Pay</button>
