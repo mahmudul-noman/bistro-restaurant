@@ -1,13 +1,15 @@
 import { FaCalendarAlt, FaCalendarCheck, FaCartPlus, FaCommentDots, FaHome, FaList, FaThLarge, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
 
     const [cart] = useCart();
 
     // TODO
-    const isAdmin = true;
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
 
     return (
