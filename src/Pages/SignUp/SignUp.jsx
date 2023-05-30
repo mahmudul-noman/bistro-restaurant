@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import { FaHome } from 'react-icons/fa';
 
 const SignUp = () => {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
@@ -12,17 +13,28 @@ const SignUp = () => {
     const navigate = useNavigate();
 
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        console.log('User Profile Updated');
-                        reset();
-                        Swal.fire('User Created Successfully')
-                        navigate('/');
+                        // console.log('User Profile Updated');
+                        const saveUser = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: { 'content-type': 'application/json' },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire('User Created Successfully')
+                                    navigate('/');
+                                }
+                            })
                     })
                     .catch(error => console.log(error))
             })
@@ -42,6 +54,10 @@ const SignUp = () => {
                         </div>
                         <div className="card flex-shrink-0 w-full max-w-sm">
                             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                                <div className='flex items-center space-x-2'>
+                                    <FaHome className='text-xl text-teal-600'></FaHome>
+                                    <Link to='/'><h2 className='text-xl font-semibold text-blue-400'>Back To Home</h2></Link>
+                                </div>
                                 <h2 className='text-2xl font-bold'>Sign Up</h2>
                                 <div className="form-control">
                                     <label className="label">

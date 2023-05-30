@@ -5,6 +5,8 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import { FaHome } from 'react-icons/fa';
 
 const Login = () => {
 
@@ -71,6 +73,10 @@ const Login = () => {
                         <div className="card w-1/2 max-w-sm">
                             <div className="card-body">
                                 <form onSubmit={handleLogin}>
+                                    <div className='flex items-center space-x-2'>
+                                        <FaHome className='text-xl text-teal-600'></FaHome>
+                                        <Link to='/'><h2 className='text-xl font-semibold text-blue-400'>Back To Home</h2></Link>
+                                    </div>
                                     <h2 className='text-2xl font-bold'>Log In</h2>
                                     <div className="form-control">
                                         <label className="label">
@@ -100,6 +106,7 @@ const Login = () => {
                                 </form>
                                 <p><small>New Here ? <Link className='text-blue-600' to="/signup">Sign Up</Link></small></p>
                             </div>
+                            <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>
