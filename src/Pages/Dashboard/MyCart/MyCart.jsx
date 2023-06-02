@@ -4,6 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import './MyCart.css'
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
     const [cart, refetch] = useCart();
@@ -46,11 +47,11 @@ const MyCart = () => {
             <Helmet>
                 <title>Bistro | My Cart</title>
             </Helmet>
-            <div className="bg-white p-10 w-3/4">
+            <div className="bg-white p-10">
                 <div className="uppercase text-xl font-bold mb-4 flex justify-evenly items-center">
                     <h2>Total Orders: {cart.length}</h2>
                     <h2>Total Price: $ {total}</h2>
-                    <button className="btn btn-sm bg-[#D1A054] border-0">Pay</button>
+                    <Link to='/dashboard/payment'><button className="btn btn-sm bg-[#D1A054] border-0">Pay</button></Link>
                 </div>
 
 
