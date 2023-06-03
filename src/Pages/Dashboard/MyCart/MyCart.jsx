@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const MyCart = () => {
     const [cart, refetch] = useCart();
     const total = cart.reduce((sum, item) => item.price + sum, 0);
+    
 
     const handleDelete = item => {
         console.log(item);
@@ -51,7 +52,7 @@ const MyCart = () => {
                 <div className="uppercase text-xl font-bold mb-4 flex justify-evenly items-center">
                     <h2>Total Orders: {cart.length}</h2>
                     <h2>Total Price: $ {total}</h2>
-                    <Link to='/dashboard/payment'><button className="btn btn-sm bg-[#D1A054] border-0">Pay</button></Link>
+                    <Link to='/dashboard/payment'><button className="btn btn-md bg-[#D1A054] border-0">Pay</button></Link>
                 </div>
 
 
